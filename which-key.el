@@ -966,11 +966,11 @@ call signature in different emacs versions"
      ((eq which-key--multiple-locations t)
       ;; possibly want to switch sides in this case so we can't reuse the window
       (delete-windows-on which-key--buffer)
-      (display-buffer-in-major-side-window which-key--buffer side 0 alist))
+      (window--make-major-side-window which-key--buffer side 0 alist))
      ((get-buffer-window which-key--buffer)
       (display-buffer-reuse-window which-key--buffer alist))
      (t
-      (display-buffer-in-major-side-window which-key--buffer side 0 alist)))))
+      (window--make-major-side-window which-key--buffer side 0 alist)))))
 
 (defun which-key--show-buffer-frame (act-popup-dim)
   "Show which-key buffer when popup type is frame."
